@@ -1,11 +1,11 @@
-# react-apollo-client-example
+# apollo-client-mocking-example
 
-A minimal React application using Apollo Client with GitHub's GraphQL API. On the side, React's local state is still used for local data whereas Apollo Client with its queries and mutations is used for remote data. [Read more about it here](https://www.robinwieruch.de/react-apollo-link-state-tutorial) without including the Apollo Link State sections.
+A minimal React application using Apollo Client with a **mocked** GitHub's GraphQL API by implementing an own GraphQL schema.
 
 ## Installation
 
-* `git clone git@github.com:rwieruch/react-apollo-client-example.git`
-* cd react-apollo-client-example
+* `git clone git@github.com:rwieruch/apollo-client-mocking-example.git`
+* cd apollo-client-mocking-example
 * npm install
 * [add your own REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN in .env file](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
   * scopes/permissions you need to check: admin:org, repo, user, notifications
