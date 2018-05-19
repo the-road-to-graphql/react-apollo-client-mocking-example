@@ -1,10 +1,19 @@
 export const typeDefs = `
-  Query {
-  ...
+  type Query {
+    organization(login: String!): Organization!
+  }
+
+  type Organization {
+    name: String!
+    url: String!
   }
 `;
 
-export const mocks = {
-  Query: () => ...,
-  Mutation: () => ...
+export const resolvers = {
+  Query: {
+    organization: (parent, { login }) => ({
+      name: login,
+      url: `https://github.com/${login}`,
+    }),
+  },
 };
