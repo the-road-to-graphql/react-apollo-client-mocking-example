@@ -1,4 +1,4 @@
-export const typeDefs = `
+export const schema = `
   type Query {
     organization(login: String!): Organization!
   }
@@ -17,7 +17,7 @@ export const typeDefs = `
     node: Repository!
   }
 
-  type Repository {
+  type Repository implements Starrable {
     id: String!
     name: String!
     url: String!
@@ -25,14 +25,14 @@ export const typeDefs = `
   }
 
   type Mutation {
-    addStar(input: AddStarInput!): AddStarResult!
+    addStar(input: AddStarInput!): AddStarPayload!
   }
 
   input AddStarInput {
     starrableId: ID!
   }
 
-  type AddStarResult {
+  type AddStarPayload {
     starrable: Starrable!
   }
 
@@ -43,14 +43,6 @@ export const typeDefs = `
 `;
 
 export const resolvers = {
-  Mutation: {
-    addStar: (parent, { input }) => ({
-      starrable: {
-        id: input.starrableId,
-        viewerHasStarred: true,
-      },
-    }),
-  },
   Query: {
     organization: (parent, { login }) => ({
       name: login,
@@ -76,5 +68,16 @@ export const resolvers = {
         ],
       },
     }),
+  },
+  Mutation: {
+    addStar: (parent, { input }) => ({
+      starrable: {
+        id: input.starrableId,
+        viewerHasStarred: true,
+      },
+    }),
+  },
+  Starrable: {
+    __resolveType: () => 'Repository',
   },
 };
