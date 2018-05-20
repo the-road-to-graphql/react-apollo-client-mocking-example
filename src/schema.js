@@ -3,6 +3,11 @@ export const schema = `
     organization(login: String!): Organization!
   }
 
+  interface Starrable {
+    id: ID!
+    viewerHasStarred: Boolean!
+  }
+
   type Organization {
     name: String!
     url: String!
@@ -18,7 +23,7 @@ export const schema = `
   }
 
   type Repository implements Starrable {
-    id: String!
+    id: ID!
     name: String!
     url: String!
     viewerHasStarred: Boolean!
@@ -34,11 +39,6 @@ export const schema = `
 
   type AddStarPayload {
     starrable: Starrable!
-  }
-
-  type Starrable {
-    id: ID!
-    viewerHasStarred: Boolean!
   }
 `;
 
