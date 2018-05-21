@@ -1,6 +1,6 @@
 # apollo-client-mocking-example
 
-A minimal React application using Apollo Client with a **mocked** GitHub's GraphQL API by implementing an own GraphQL schema.
+A minimal React application using Apollo Client with a **mocked** GitHub's GraphQL API by implementing an own GraphQL schema. [Read more about it here.](https://www.robinwieruch.de/graphql-server-mock-apollo-client/)
 
 ## Installation
 
